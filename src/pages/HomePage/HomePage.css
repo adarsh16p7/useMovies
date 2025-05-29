@@ -52,11 +52,26 @@
   }
 }
 
-.movies_grid {
+.movie_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 436px) {
+  .search_form {
+    max-width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .search_input,
+  .search_btn {
+    padding: 0.5rem 1rem;
+  }
 }
