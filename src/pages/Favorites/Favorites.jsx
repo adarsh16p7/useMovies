@@ -1,3 +1,5 @@
+import "./Favorites.css";
+
 const Favorites = () => {
   return (
     <div className='favorites_empty'>
