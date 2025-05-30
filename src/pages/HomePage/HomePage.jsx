@@ -57,6 +57,9 @@ const HomePage = () => {
         />
         <button className='search_btn'>Search</button>
       </form>
+
+      {error && <div className='error_message'>{error}</div>}
+
       <div className='movie_grid'>
         {loading ? <div className='loading'>Loading...</div> : movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
       </div>
