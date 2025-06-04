@@ -1,10 +1,15 @@
 import { useFavoriteContext } from "../../context/FavoriteContext";
 import "../MovieCard/MovieCard.css";
+import { useMemo } from "react";
 
 const MovieCard = ({ movie }) => {
-  const [addToFavorites, removeFromFavorites, isFavorite] = useFavoriteContext();
+  const [favorites, addToFavorites, removeFromFavorites, isFavorite] = useFavoriteContext();
 
-  const favorite = isFavorite(movie.id);
+  // Use useMemo to prevent recalculation on every render
+  const favorite = useMemo(() => isFavorite(movie.id), [isFavorite, movie.id]);
+
+  console.log("Favorite Movies:", favorites);
+  console.log("This is the movie in focus:", movie);
 
   const onFavClick = (evt) => {
     evt.preventDefault();

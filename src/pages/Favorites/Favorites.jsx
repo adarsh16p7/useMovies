@@ -6,16 +6,17 @@ const Favorites = () => {
   const [favorites] = useFavoriteContext();
   return (
     <>
-      {!favorites ? (
+      {favorites.length === 0 ? (
         <div className='favorites_empty'>
           <h2>No Favorite Movies Yet</h2>
           <p>Start adding movies to your favorites and they will appear here!</p>
         </div>
       ) : (
         <div className='favorites'>
-          {favorites.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
+          {favorites.map((movie) => {
+            console.log("Rendering MovieCard for:", movie);
+            return <MovieCard movie={movie} key={movie.id} />;
+          })}
         </div>
       )}
     </>
